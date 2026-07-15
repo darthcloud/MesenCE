@@ -29,6 +29,7 @@ namespace Mesen.ViewModels
 			ControllerType.AsciiTurboFileTwinTf2,
 			ControllerType.AsciiTurboFileTwinStf,
 			ControllerType.Multitap,
+			ControllerType.SnesBlueRetroController,
 		};
 
 		public Enum[] AvailableControllerTypesMultitap => new Enum[] {
