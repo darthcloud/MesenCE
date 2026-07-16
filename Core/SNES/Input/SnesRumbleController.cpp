@@ -30,7 +30,7 @@ void SnesRumbleController::RefreshStateBuffer()
 
 	//The LRG rumble controller stops rumbling shortly after the last rumble command.
 	//Not accurate, assumes the game regularly latches the controller.
-	if(_rumbleActive) {
+	if(_console && _rumbleActive) {
 		if(_console->GetFrameCount() - _lastRumbleFrame > 2) {
 			KeyManager::SetForceFeedback(0, 0);
 			_rumbleActive = false;
@@ -42,7 +42,7 @@ void SnesRumbleController::RefreshStateBuffer()
 
 uint8_t SnesRumbleController::ReadRam(uint16_t addr)
 {
-	if(IsCurrentPort(addr)) {
+	if(_console && IsCurrentPort(addr)) {
 		uint8_t ioPort = _console->GetInternalRegisters()->GetIoPortOutput();
 
 		//Technically, when plugged into port 2, this uses bit 7, but activating the rumble

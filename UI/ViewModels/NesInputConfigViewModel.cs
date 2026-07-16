@@ -81,6 +81,8 @@ namespace Mesen.ViewModels
 			ControllerType.SnesNttDataKeypad,
 			ControllerType.SuborMouse,
 			ControllerType.VbController,
+			ControllerType.SnesRumbleController,
+			ControllerType.SnesBlueRetroController,
 		};
 
 		public Enum[] AvailableExpansionTypes => new Enum[] {

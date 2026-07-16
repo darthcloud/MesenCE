@@ -5,6 +5,8 @@
 #include "Shared/InputHud.h"
 #include "Shared/IControllerHub.h"
 #include "SNES/Input/SnesController.h"
+#include "SNES/Input/SnesRumbleController.h"
+#include "SNES/Input/SnesBlueRetroController.h"
 #include "SNES/Input/SnesMouse.h"
 #include "SNES/Input/SnesNttDataKeypad.h"
 #include "NES/Input/NesController.h"
@@ -70,6 +72,14 @@ public:
 			switch(controllers[i].Type) {
 				case ControllerType::SnesController:
 					_ports[i].reset(new SnesController(emu, 0, controllers[i].Keys));
+					break;
+
+				case ControllerType::SnesRumbleController:
+					_ports[i].reset(new SnesRumbleController(emu, nullptr, 0, controllers[i].Keys));
+					break;
+
+				case ControllerType::SnesBlueRetroController:
+					_ports[i].reset(new SnesBlueRetroController(emu, nullptr, 0, controllers[i].Keys));
 					break;
 
 				case ControllerType::SnesMouse:

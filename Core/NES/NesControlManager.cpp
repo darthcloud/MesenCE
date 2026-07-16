@@ -13,6 +13,8 @@
 #include "Shared/SystemActionManager.h"
 #include "NES/Input/NesController.h"
 #include "SNES/Input/SnesController.h"
+#include "SNES/Input/SnesRumbleController.h"
+#include "SNES/Input/SnesBlueRetroController.h"
 #include "SNES/Input/SnesMouse.h"
 #include "SNES/Input/SnesNttDataKeypad.h"
 #include "NES/Input/Zapper.h"
@@ -89,6 +91,8 @@ shared_ptr<BaseControlDevice> NesControlManager::CreateControllerDevice(Controll
 
 		case ControllerType::NesArkanoidController: device.reset(new ArkanoidController(_emu, type, port, keys)); break;
 		case ControllerType::SnesController: device.reset(new SnesController(_emu, port, keys)); break;
+		case ControllerType::SnesRumbleController: device.reset(new SnesRumbleController(_emu, nullptr, port, keys)); break;
+		case ControllerType::SnesBlueRetroController: device.reset(new SnesBlueRetroController(_emu, nullptr, port, keys)); break;
 		case ControllerType::SnesNttDataKeypad: device.reset(new SnesNttDataKeypad(_emu, port, keys)); break;
 
 		case ControllerType::PowerPadSideA:
